@@ -6,7 +6,6 @@
 |e-mail|string|
 |password_digest|string|
 
-
 #### Taskモデル
 |カラム名|データ型|
 |:--:|:--:|
@@ -18,14 +17,12 @@
 |priority|string|
 |status|string|
 
-
 #### Intermediaryモデル
 |カラム名|データ型|
 |:--:|:--:|
 |id|integer|
 |task_id(FK)|references|
 |label_id(FK)|references|
-
 
 #### Labelモデル
 |カラム名|データ型|
