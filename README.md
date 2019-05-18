@@ -17,7 +17,7 @@
 |priority|string|
 |status|string|
 
-#### Intermediaryモデル
+#### labelingモデル
 |カラム名|データ型|
 |:--:|:--:|
 |id|integer|
