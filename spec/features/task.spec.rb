@@ -37,6 +37,8 @@ RSpec.feature "タスク管理機能", type: :feature do
 end
 
 
+
+# タスクが作成日時の降順に並んでいるかのテストについての解説
 # before:
 # b = []
 # Task.all.order(created_at: "DESC").each do |task|
