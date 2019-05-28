@@ -11,7 +11,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create(task_params)
-    redirect_to task_path(@task.id), notice:"タスクを作成しました!"
+    if @task.save
+      redirect_to task_path(@task.id), notice:"タスクを作成しました!"
+    else
+      render 'new'
+    end
   end
 
   def show
