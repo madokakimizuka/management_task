@@ -31,7 +31,7 @@
 |name|string|
 
 ***  
-##herokuへのデプロイ手順
+##Herokuへのデプロイ手順
 1. コミットする。
 1. 'heroku create' でHerokuに新しいアプリケーションを作成する。
 1. 'git push heroku master' でHerokuにデプロイ
