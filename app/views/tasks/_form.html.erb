@@ -1,7 +1,7 @@
 <%= form_with(model: @task, local: true) do |form| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @task.errors.count %><%= t(view.tell_error) %></h2>
+      <h2><%= @task.errors.count %><%= t('view.tell_error') %></h2>
       <ul>
 
       <% @task.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="task_title">
-    <%= form.label :task %>
+    <%= form.label :title %>
     <%= form.text_field :title, id: 'task' %>
   </div>
   <div class="task_title">

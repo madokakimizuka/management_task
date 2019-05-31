@@ -12,12 +12,3 @@ ja:
     new: 新規作成
     screen: 画面
     tell_error: 件のエラーがあります。
-
-  activerecord:
-    attributes:
-      task:
-        task: タスク
-        content: 詳細
-        deadline: 期限
-        priority: 優先度
-        status: 状態
