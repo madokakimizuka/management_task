@@ -1,5 +1,7 @@
 <h1><%= t('view.task') + t('view.index') %></h1>
 
+<%= link_to "終了期限でソートする", root_path(sort_expired: "true") %>
+
 <table>
   <tr>
     <th><%= t('view.title') %></th>
