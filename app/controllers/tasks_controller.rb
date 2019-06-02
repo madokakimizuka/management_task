@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.sort_from_params
+    @tasks = Task.sort_from_params(params)
   end
 
   def new
