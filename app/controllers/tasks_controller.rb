@@ -3,6 +3,9 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.sort_from_params(params)
+
+    # Serviceクラスを利用したコード
+    # @tasks = TaskIndexService.new(params).run
   end
 
   def new

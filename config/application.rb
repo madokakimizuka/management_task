@@ -20,7 +20,7 @@ module ManagementTask
       g.assets false
       g.helper false
     end
-
+    config.autoload_paths += Dir["#{config.root}/app/services/*"]
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
