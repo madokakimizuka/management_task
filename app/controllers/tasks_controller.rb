@@ -2,7 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.all.order(created_at: "DESC")
+    @tasks = Task.sort_from_params(params)
+
+    # Serviceクラスを利用したコード
+    # @tasks = TaskIndexService.new(params).run
   end
 
   def new

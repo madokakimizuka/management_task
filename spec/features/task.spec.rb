@@ -4,6 +4,7 @@ RSpec.feature "タスク管理機能", type: :feature do
   background do
     FactoryBot.create(:task)
     FactoryBot.create(:second_task)
+    FactoryBot.create(:third_task)
   end
 
   scenario "タスク一覧のテスト" do
@@ -32,7 +33,24 @@ RSpec.feature "タスク管理機能", type: :feature do
     # .はclass #id
     expect(
       all('.task-index__title').map(&:text)
-    ).to eql Task.all.order(created_at: "DESC").map(&:title)
+    ).to eql Task.order(created_at: "DESC").map(&:title)
+  end
+
+  scenario "タスクの終了期限が入力できるかのテスト" do
+    visit new_task_path
+    fill_in 'task', with: 'testtesttest'
+    fill_in 'content', with: 'samplesample'
+    fill_in 'deadline', with: DateTime.now
+    click_on '新規作成'
+    expect(page).to have_content '2019'
+  end
+
+  scenario "タスクの終了期限順にソートできるかのテスト" do
+    visit root_path
+    click_on '終了期限でソートする'
+    expect(
+      all('.task-index__title').map(&:text)
+    ).to eql Task.order(deadline: "DESC").map(&:title)
   end
 end
 
