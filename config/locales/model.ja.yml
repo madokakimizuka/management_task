@@ -12,3 +12,7 @@ ja:
     new: 新規作成
     screen: 画面
     tell_error: 件のエラーがあります。
+    sort_expired: 終了期限でソートする
+    title_search: タイトル検索
+    status_search: ステータス検索
+    blank: 未選択

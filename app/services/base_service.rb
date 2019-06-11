@@ -1,4 +1,5 @@
 # 宮崎さんに教えてもらったServiceクラスのコード
+
 # class BaseService
 #
 #   attr_accessor :errors

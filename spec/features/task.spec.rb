@@ -52,6 +52,16 @@ RSpec.feature "タスク管理機能", type: :feature do
       all('.task-index__title').map(&:text)
     ).to eql Task.order(deadline: "DESC").map(&:title)
   end
+
+  scenario "タスクの検索ができるかのテスト" do
+    visit root_path
+    fill_in 'title_key', with: '_02'
+    # selectボックスを選択する
+    select '完了', from: 'status_key'
+    click_on 'Search'
+    expect(page).to have_content 'samplesample'
+    expect(page).not_to have_content 'hogehogehoge'
+  end
 end
 
 # タスクが作成日時の降順に並んでいるかのテストについての解説
