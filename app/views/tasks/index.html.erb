@@ -1,13 +1,13 @@
 <h1><%= t('view.task') + t('view.index') %></h1>
 
-<%= link_to "終了期限でソートする", root_path(sort_expired: "true") %>
+<%= link_to t('view.sort_expired'), root_path(sort_expired: "true") %>
 
 <%= form_with(model:Task.new, method: :get, url: root_path, local: true) do |f| %>
-  <%= f.label :title_search, "タイトル検索" %>
+  <%= f.label :title_search, t('view.title_search') %>
   <%= f.text_field :title_key ,id: 'title_key' %>
 
-  <%= f.label :status_search, "ステータス検索" %>
-  <%= f.select :status_key, Task.statuses.keys, {:include_blank => '未選択'},  id: 'status_key' %>
+  <%= f.label :status_search, t('view.status_search') %>
+  <%= f.select :status_key, Task.statuses.keys, {:include_blank => t('view.blank')},  id: 'status_key' %>
 
   <%= f.hidden_field :search, value: 'true' %>
 
