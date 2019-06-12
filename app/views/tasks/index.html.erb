@@ -1,7 +1,7 @@
 <h1><%= t('view.task') + t('view.index') %></h1>
 
 <%= link_to t('view.sort_expired'), root_path(sort_expired: "true") %>
-<%= link_to "優先度の高い順にソートする", root_path(sort_priority: "true") %>
+<%= link_to t('view.sort_priority'), root_path(sort_priority: "true") %>
 
 <%= form_with(model:Task.new, method: :get, url: root_path, local: true) do |f| %>
   <%= f.label :title_search, t('view.title_search') %>
