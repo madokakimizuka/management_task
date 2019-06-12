@@ -11,6 +11,9 @@ class Task < ApplicationRecord
   scope :title_search, -> (params){ where(('title LIKE ?'), "%#{ params }%") }
   scope :status_search, -> (params){ where(('CAST(status AS TEXT) LIKE ?'), "%#{ params }%") }
 
+
+  scope :paginate, ->(p) { page(p[:page]).per(5) }
+
   def self.sort_from_params(params)
     if params[:sort_expired].present?
       return Task.order(deadline: "DESC")
