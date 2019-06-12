@@ -12,7 +12,6 @@ class TasksController < ApplicationController
     else
       @tasks = Task.sort_from_params(params)
     end
-
     # 終了期限でソートする
     # Serviceクラスを利用したコード
     # @tasks = TaskIndexService.new(params).run

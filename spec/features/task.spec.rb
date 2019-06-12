@@ -62,6 +62,14 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(page).to have_content 'samplesample'
     expect(page).not_to have_content 'hogehogehoge'
   end
+
+  scenario "タスクが優先順位の高い順に並んでいるかのテスト" do
+    visit root_path
+    click_on '優先度の高い順にソートする'
+    expect(
+      all('.task-index__title').map(&:text)
+    ).to eql Task.order(:priority).map(&:title)
+  end
 end
 
 # タスクが作成日時の降順に並んでいるかのテストについての解説
