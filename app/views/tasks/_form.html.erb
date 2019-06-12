@@ -24,13 +24,14 @@
     <%= form.text_field :deadline ,id: 'deadline' %>
   </div>
   <div class="task_title">
-    <%= form.label :priority %>
-    <%= form.text_field :priority, id: 'priority' %>
-  </div>
-  <div class="task_title">
     <%= form.label :status %>
     <%= form.select :status, Task.statuses.keys, id: 'status' %>
   </div>
+  <div class="task_title">
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priorities.keys, id: 'priority' %>
+  </div>
+
 
   <%= form.submit t('view.new') %>
 <% end %>
