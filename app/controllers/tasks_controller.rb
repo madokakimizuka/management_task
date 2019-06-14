@@ -1,16 +1,17 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
+  PER = 8
 
   def index
     if params[:task].present? && params[:task][:search]
       @search = params[:task]
       @enums = Task.statuses
-      @tasks = Task.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]])
+      @tasks = Task.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]]).paginate(params)
       # @tasks = Task.where(('title LIKE ? AND CAST(status AS TEXT) LIKE ?'),"%#{ @search[:title_key] }%", "%#{ @enums[@search[:status_key]] }%")
       # (status = ?) で検索すると、status_searchが未選択の時にデータ型が合わない、みたいに怒られる。
       # 文字にしたものを数値で取り出し直して、また文字に戻してる。
     else
-      @tasks = Task.sort_from_params(params)
+      @tasks = Task.sort_from_params(params).paginate(params)
     end
     # 終了期限でソートする
     # Serviceクラスを利用したコード
