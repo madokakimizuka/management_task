@@ -14,6 +14,7 @@ ja:
     tell_error: 件のエラーがあります。
     sort_expired: 終了期限でソートする
     sort_priority: 優先度の高い順にソートする
+    search: 検索
     title_search: タイトル検索
     status_search: ステータス検索
     blank: 未選択

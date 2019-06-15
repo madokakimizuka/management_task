@@ -2,7 +2,6 @@
 
 <%= link_to t('view.sort_expired'), root_path(sort_expired: "true") %>
 <%= link_to t('view.sort_priority'), root_path(sort_priority: "true") %>
-
 <%= form_with(model:Task.new, method: :get, url: root_path, local: true) do |f| %>
   <%= f.label :title_search, t('view.title_search') %>
   <%= f.text_field :title_key ,id: 'title_key' %>
@@ -12,12 +11,12 @@
 
   <%= f.hidden_field :search, value: 'true' %>
 
-  <%= f.submit 'Search' %>
+  <%= f.submit t('view.search') %>
 
 <% end %>
 <table>
   <tr>
-    <th><%= t('view.title') %></th>
+    <th><%= t('view.task') %></th>
     <th><%= t('view.content') %></th>
     <th><%= t('view.deadline') %></th>
     <th><%= t('view.status') %></th>
@@ -37,6 +36,6 @@
   <tr>
 <% end %>
 </table>
-<%= paginate @tasks %>
+<p><%= paginate @tasks %></p>
 
 <%= link_to t('view.new'), new_task_path %>
