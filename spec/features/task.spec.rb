@@ -17,7 +17,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     visit new_task_path
     fill_in 'task', with: 'testtesttest'
     fill_in 'content', with: 'samplesample'
-    click_on '新規作成'
+    click_on '作成'
     expect(page).to have_content'testtesttest'
     expect(page).to have_content'samplesample'
   end
@@ -41,7 +41,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     fill_in 'task', with: 'testtesttest'
     fill_in 'content', with: 'samplesample'
     fill_in 'deadline', with: DateTime.now
-    click_on '新規作成'
+    click_on '作成'
     expect(page).to have_content '2019'
   end
 
@@ -58,7 +58,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     fill_in 'title_key', with: '_02'
     # selectボックスを選択する
     select '完了', from: 'status_key'
-    click_on 'Search'
+    click_on '検索'
     expect(page).to have_content 'samplesample'
     expect(page).not_to have_content 'hogehogehoge'
   end

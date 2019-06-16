@@ -20,8 +20,11 @@
     <%= form.text_field :content ,id: 'content' %>
   </div>
   <div class="task_title">
-    <%= form.label :deadline %>
-    <%= form.text_field :deadline ,id: 'deadline' %>
+    <div class='input-group date' id='datetimepicker1'>
+      <%= form.label :deadline %>
+      <%= form.date_field :deadline, id: 'deadline' %>
+
+    </div>
   </div>
   <div class="task_title">
     <%= form.label :status %>
@@ -33,7 +36,7 @@
   </div>
 
 
-  <%= form.submit t('view.new') %>
-<% end %>
+  <%= form.submit t('view.create') %>
+<% end %><br>
 
 <%= link_to t('view.task') + t('view.index'), root_path %>

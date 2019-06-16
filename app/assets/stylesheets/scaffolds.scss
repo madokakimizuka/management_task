@@ -1,0 +1,39 @@
+body {
+  background-color: #efefef;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+.content {
+  margin-top: 90px;
+}
+.content a {
+  color: #030303;
+  font-family: YuMincho;
+  font-size: 13px;
+  background: linear-gradient(transparent 50%, #b3b3b3)
+}
+
+#status_key, #title_key {
+  margin-right: 5px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+input, select {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
