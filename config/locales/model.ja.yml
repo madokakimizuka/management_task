@@ -5,11 +5,16 @@ ja:
     deadline: 期限
     priority: 優先度
     status: 状態
+    name: 名前
+    email: メールアドレス
+    password: パスワード
+    confirmation: 確認用
     index: 一覧
     edit: 編集
     delete: 削除
     delete_confirm: 本当に削除していいですか？
     new: 新規
+    account: アカウント
     create: 作成
     screen: 画面
     tell_error: 件のエラーがあります。
@@ -19,3 +24,4 @@ ja:
     title_search: タイトル検索
     status_search: ステータス検索
     blank: 未選択
+    sign up: サインアップ
