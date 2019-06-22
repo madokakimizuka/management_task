@@ -3,11 +3,11 @@
 
   <div class="login">
   <%= f.label User.human_attribute_name("email") %>
-  <%= f.email_field :email %>
+  <%= f.email_field :email, id: 'email' %>
   </div>
   <div class="login">
   <%= f.label User.human_attribute_name("password") %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, id: 'password'%>
   </div>
 
   <%= f.submit t('view.login') %>
