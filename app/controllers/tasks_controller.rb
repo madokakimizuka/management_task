@@ -6,12 +6,12 @@ class TasksController < ApplicationController
     if params[:task].present? && params[:task][:search]
       @search = params[:task]
       @enums = Task.statuses
-      @tasks = Task.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]]).paginate(params)
+      @tasks = current_user.tasks.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]]).paginate(params)
       # @tasks = Task.where(('title LIKE ? AND CAST(status AS TEXT) LIKE ?'),"%#{ @search[:title_key] }%", "%#{ @enums[@search[:status_key]] }%")
       # (status = ?) で検索すると、status_searchが未選択の時にデータ型が合わない、みたいに怒られる。
       # 文字にしたものを数値で取り出し直して、また文字に戻してる。
     else
-      @tasks = Task.sort_from_params(params).paginate(params)
+      @tasks = current_user.tasks.sort_from_params(params).paginate(params)
     end
     # 終了期限でソートする
     # Serviceクラスを利用したコード
@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to task_path(@task.id), notice:"タスクを作成しました!"
     else
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
 end
