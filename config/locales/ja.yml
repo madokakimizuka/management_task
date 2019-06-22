@@ -14,6 +14,12 @@ ja:
         deadline: 期限
         priority: 優先度
         status: 状態
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+
   date:
     abbr_day_names:
     - 日
