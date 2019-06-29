@@ -16,7 +16,9 @@ ja:
     delete_confirm: 本当に削除していいですか？
     new: 新規
     account: アカウント
+    user: ユーザー
     create: 作成
+    create_user: ユーザーを新たに作成する
     screen: 画面
     tell_error: 件のエラーがあります。
     sort_expired: 終了期限でソートする
@@ -26,3 +28,6 @@ ja:
     status_search: ステータス検索
     blank: 未選択
     sign up: サインアップ
+    back: 戻る
+    registration: 登録
+    count: 数

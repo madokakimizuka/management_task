@@ -7,8 +7,8 @@ RSpec.feature "タスク管理機能", type: :feature do
     FactoryBot.create(:second_task, user: @user_a)
     FactoryBot.create(:third_task, user: @user_a)
     visit new_session_path
-    fill_in 'Email', with: 'test1@example.com'
-    fill_in 'Password', with: 'password'
+    fill_in 'email', with: 'test1@example.com'
+    fill_in 'password', with: 'password'
     click_on 'ログイン'
   end
 

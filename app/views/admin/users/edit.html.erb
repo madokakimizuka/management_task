@@ -1,0 +1,28 @@
+<h1><%= t('view.edit') %></h1>
+
+<%= form_with(model: [:admin, @user], local: true) do |form| %>
+  <div class="user">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="user">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: 'email' %>
+  </div>
+  <div class="user">
+    <%= form.label :admin %>
+    <%= form.check_box :admin %>
+  </div>
+  <div class="user">
+    <%= form.label :password %>
+    <%= form.text_field :password, id: 'password' %>
+  </div>
+  <div class="user">
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation, id: 'password_confirmation' %>
+  </div>
+
+  <%= form.submit t('view.user') + t('view.edit') %>
+<% end %>
+
+<%= link_to t('view.back'), admin_users_path %>
