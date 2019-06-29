@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.select(:id, :name, :email)
+    @users = User.all.includes(:tasks)
   end
 
 
