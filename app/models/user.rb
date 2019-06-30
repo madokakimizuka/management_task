@@ -6,4 +6,13 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :tasks, dependent: :destroy
+
+  before_destroy :left_admin_user
+
+  private
+  def left_admin_user
+    if User.select('admin').where('admin = true').length == 1
+      throw(:abort)
+    end
+  end
 end
