@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Task, type: :model do
   before do
-    @one = FactoryBot.create(:task)
-    @two = FactoryBot.create(:second_task)
-    @three = FactoryBot.create(:third_task)
+    @user = FactoryBot.create(:user)
+    @one = FactoryBot.create(:task, user: @user)
+    @two = FactoryBot.create(:second_task, user: @user)
+    @three = FactoryBot.create(:third_task, user: @user)
   end
 
   it "titleが空ならバリデーションが通らない" do
@@ -23,7 +24,7 @@ RSpec.describe Task, type: :model do
   end
 
   it "titleとcontentに内容が記載されていればバリデーションが通る" do
-    task = Task.new(title: '成功', content: 'テスト')
+    task = Task.new(title: '成功', content: 'テスト', user: @user)
     expect(task).to be_valid
   end
 

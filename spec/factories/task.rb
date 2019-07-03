@@ -5,7 +5,6 @@ FactoryBot.define do
     deadline { DateTime.now + 10.days }
     status { 0 }
     created_at { '2019-05-26 13:30:15 +0900' }
-    user
   end
 
   factory :second_task, class: Task do
@@ -14,7 +13,6 @@ FactoryBot.define do
     deadline { DateTime.now + 15.days }
     status { 2 }
     created_at { '2019-06-26 13:30:15 +0900' }
-    user
   end
 
   factory :third_task, class: Task do
@@ -23,6 +21,5 @@ FactoryBot.define do
     deadline { DateTime.now + 5.days }
     status { 2 }
     created_at { '2019-04-26 13:30:15 +0900' }
-    user
   end
 end

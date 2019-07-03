@@ -1,6 +1,16 @@
 <h1><%= t('view.edit') %></h1>
 
 <%= form_with(model: [:admin, @user], local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %><%= t('view.tell_error') %></h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="user">
     <%= form.label :name %>
     <%= form.text_field :name %>
