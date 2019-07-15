@@ -4,5 +4,10 @@
 <p><%= t('view.deadline') %>: <%= @task.deadline %></p>
 <p><%= t('view.priority') %>: <%= @task.priority %></p>
 <p><%= t('view.status') %>: <%= @task.status %></p>
+<p>ラベル:
+  <% @task.labelings.each do |labeling| %>
+  <%= labeling.label.name %>
+  <% end %></p>
+
 
 <%= link_to t('view.index'), root_path %>

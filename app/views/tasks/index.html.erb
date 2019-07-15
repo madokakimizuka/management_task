@@ -9,6 +9,9 @@
   <%= f.label :status_search, t('view.status_search') %>
   <%= f.select :status_key, Task.statuses.keys, {:include_blank => t('view.blank')},  id: 'status_key' %>
 
+  <%= f.label :label_search, "ラベル検索" %>
+  <%= f.select :label_key, Label.all.map { |label| [label.name, label.id] }, {:include_blank => t('view.blank')}, id: 'label_key' %>
+
   <%= f.hidden_field :search, value: 'true' %>
 
   <%= f.submit t('view.search') %>

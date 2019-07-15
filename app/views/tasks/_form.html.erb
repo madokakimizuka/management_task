@@ -23,7 +23,6 @@
     <div class='input-group date' id='datetimepicker1'>
       <%= form.label :deadline %>
       <%= form.date_field :deadline, id: 'deadline' %>
-
     </div>
   </div>
   <div class="task_title">
@@ -34,6 +33,12 @@
     <%= form.label :priority %>
     <%= form.select :priority, Task.priorities.keys, id: 'priority' %>
   </div>
+  <div class="task_title">
+      <% Label.all.each do |label| %>
+        <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+        <label><%= label.name %></label>
+      <% end %>
+    </div>
 
 
   <%= form.submit t('view.create') %>

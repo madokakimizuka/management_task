@@ -6,6 +6,9 @@ class Task < ApplicationRecord
   validates :status, presence: true
 
   belongs_to :user
+  has_many :labelings, dependent: :destroy
+  has_many :labels, through: :labelings, source: :label
+  accepts_nested_attributes_for :labelings, allow_destroy: true
 
   enum status: %i( 未着手 着手中 完了 )
   enum priority: %i( 高 中 低 )

@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   before do
     @user = FactoryBot.create(:user)
-    @one = FactoryBot.create(:task, user: @user)
-    @two = FactoryBot.create(:second_task, user: @user)
-    @three = FactoryBot.create(:third_task, user: @user)
+    # @one = FactoryBot.create(:task, user: @user)
+    # @two = FactoryBot.create(:second_task, user: @user)
+    # @three = FactoryBot.create(:third_task, user: @user)
   end
 
   it "titleが空ならバリデーションが通らない" do
@@ -33,7 +33,7 @@ RSpec.describe Task, type: :model do
       task: { title_key: "_02" }
     }
     @search = params[:task]
-    expect(Task.title_search(@search[:title_key])[0].id).to be @two.id
+    expect(Task.title_search(@search[:title_key])[0].id).to be @user.tasks[1].id
   end
 
   it "status検索ができる" do
