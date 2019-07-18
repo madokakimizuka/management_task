@@ -6,7 +6,14 @@ class TasksController < ApplicationController
     if params[:task].present? && params[:task][:search]
       @search = params[:task]
       @enums = Task.statuses
-      @tasks = current_user.tasks.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]]).paginate(params)
+      @labelings = Labeling.where(label_id: @search[:label_key]).pluck(:task_id)
+      @tasks = current_user.tasks.title_search(@search[:title_key]).status_search(@enums[@search[:status_key]])
+      @tasks = @labelings.length == 0 ? @tasks.paginate(params) : @tasks.where(id: @labelings).paginate(params)
+
+      # 送られてきた :label_key をもつデータを中間テーブルから where で検索して、pluck でデータの :task_id を抽出
+      # Labeling.where(label_id: params[:task][:label_key] ).pluck(:task_id)
+      # 抽出した :task_id と一致する :id をもつ Task を取得したい
+
       # @tasks = Task.where(('title LIKE ? AND CAST(status AS TEXT) LIKE ?'),"%#{ @search[:title_key] }%", "%#{ @enums[@search[:status_key]] }%")
       # (status = ?) で検索すると、status_searchが未選択の時にデータ型が合わない、みたいに怒られる。
       # 文字にしたものを数値で取り出し直して、また文字に戻してる。
@@ -53,7 +60,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :content, :deadline, :priority, :status)
+    params.require(:task).permit(:title, :content, :deadline, :priority, :status, label_ids:[])
   end
 
   def set_task
