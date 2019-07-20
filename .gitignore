@@ -28,3 +28,5 @@
 
 # Ignore uploaded pictures in development
 /public/uploads/picture/
+
+.env
